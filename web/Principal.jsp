@@ -16,16 +16,16 @@
                     <a class="btn btn-outline-light ms-1" href="#">Home</a>
                   </li>
                   <li class="nav-item">
-                    <a class="btn btn-outline-light ms-1" href="Controlador?accion=Producto" target="myFrame">Producto</a>
+                    <a class="btn btn-outline-light ms-1" href="Controlador?menu=Producto" target="myFrame">Producto</a>
                   </li>
                   <li class="nav-item">
-                    <a class="btn btn-outline-light ms-1" href="Controlador?accion=Usuario" target="myFrame">Empleado</a>
+                    <a class="btn btn-outline-light ms-1" href="Controlador?menu=Empleado&accion=Listar" target="myFrame">Empleado</a>
                   </li>
                   <li class="nav-item">
-                    <a class="btn btn-outline-light ms-1" href="Controlador?accion=Clientes"  target="myFrame">Clientes</a>
+                    <a class="btn btn-outline-light ms-1" href="Controlador?menu=Clientes"  target="myFrame">Clientes</a>
                   </li>
                   <li class="nav-item">
-                    <a class="btn btn-outline-light ms-1" href="Controlador?accion=RegistrarVenta"  target="myFrame">Nueva Venta</a>
+                    <a class="btn btn-outline-light ms-1" href="Controlador?menu=RegistrarVenta"  target="myFrame">Nueva Venta</a>
                   </li>
                 </ul>
               </div>

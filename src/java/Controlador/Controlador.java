@@ -1,8 +1,11 @@
-
 package Controlador;
 
+import Modelo.Empleado;
+import Modelo.EmpleadoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -11,28 +14,45 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public class Controlador extends HttpServlet {
 
+    Empleado em=new Empleado();
+    EmpleadoDAO edao=new EmpleadoDAO();
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String accion=request.getParameter("accion");
-        switch (accion) {
-            case "Principal":
-                request.getRequestDispatcher("Principal.jsp").forward(request, response);
-            break;
-            case  "Producto":
-            request.getRequestDispatcher("Productos.jsp").forward(request, response);  
-             break;
-             case  "Clientes":
-              request.getRequestDispatcher("Clientes.jsp").forward(request, response);
-             break;
-             case  "Usuario":
-              request.getRequestDispatcher("Empleado.jsp").forward(request, response);
-             break;
-             case  "RegistrarVenta":
-              request.getRequestDispatcher("RegistrarVenta.jsp").forward(request, response);
-             break;
-             default:
-                 throw new AssertionError();
+        String menu=request.getParameter("menu");
+
+        if (menu.equals("Principal")) {
+            request.getRequestDispatcher("Principal.jsp").forward(request, response);
+        }
+        if (menu.equals("Empleado")) {
+            switch (accion){
+                case "Listar":
+                    List lista=edao.listar();
+                    request.setAttribute("empleados", lista);
+                    break;
+                case "Agregar":
+
+                    break;
+                case "editar":
+
+                    break;
+                case "Delete":
+
+                    break;
+                default:
+
+            }
+            request.getRequestDispatcher("Empleado.jsp").forward(request, response);
+        }
+        if (menu.equals("Producto")) {
+            request.getRequestDispatcher("Productos.jsp").forward(request, response);
+        }
+        if (menu.equals("Clientes")) {
+            request.getRequestDispatcher("Clientes.jsp").forward(request, response);
+        }
+        if (menu.equals("RegistrarVenta")) {
+            request.getRequestDispatcher("RegistrarVenta.jsp").forward(request, response);
         }
     }
 
